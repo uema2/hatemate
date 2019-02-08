@@ -3,7 +3,11 @@
     <div class="cover-inner">
       <div class="cover-contents">
         <h2>「嫌い」の感情から「好き」の傾向を探る</h2>
-        <a href="" class="btn btn-primary btn-lg">ヘイトメイトを始める</a>
+          <% if logged_in? %>
+            <a href="#">検索</a>
+          <% else %>
+            <%= link_to "ヘイトメイトを始める", signup_path, class: "btn btn-info btn-lg" %>
+          <% end %>
       </div>
     </div>
   </div>
