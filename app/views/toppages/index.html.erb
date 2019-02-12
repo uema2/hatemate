@@ -4,7 +4,7 @@
       <div class="cover-contents">
         <h2>「嫌い」の感情から「好き」の傾向を探る</h2>
           <% if logged_in? %>
-            <a href="#">検索</a>
+            <%= link_to "アニメを検索する", new_anime_path, class: "btn btn-info btn-lg" %>
           <% else %>
             <%= link_to "ヘイトメイトを始める", signup_path, class: "btn btn-info btn-lg" %>
           <% end %>
@@ -15,3 +15,4 @@
 
 
 <div class="text-center"><%= link_to ">  hatemateについて  <" , about_path %></div>
+

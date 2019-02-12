@@ -73,3 +73,22 @@ footer {
 .application_content img {
   max-width: 50%;
 }
+.anime img {
+  width:300px;
+}
+/* search */
+.search {
+  margin-bottom: 20px;
+}
+
+/* anime */
+.anime .panel-body {
+  height: 70px;
+}
+.anime .panel-heading {
+  height: 180px;
+}
+.anime .panel-heading img {
+  width: auto;
+  height: 100%;
+}

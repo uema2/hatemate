@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   get "about", to: "toppages#show"
   get "signup", to: "users#new"
   resources :users, only: [:show, :new, :create]
+  
+  resources :animes, only: [:new]
 end
