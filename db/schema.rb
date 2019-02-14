@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190210114413) do
+ActiveRecord::Schema.define(version: 20190213044423) do
 
   create_table "animes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "code"
@@ -23,6 +23,18 @@ ActiveRecord::Schema.define(version: 20190210114413) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "ratings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "type"
+    t.string   "comment"
+    t.integer  "user_id"
+    t.integer  "anime_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["anime_id"], name: "index_ratings_on_anime_id", using: :btree
+    t.index ["user_id", "anime_id", "type"], name: "index_ratings_on_user_id_and_anime_id_and_type", unique: true, using: :btree
+    t.index ["user_id"], name: "index_ratings_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "email"
@@ -31,4 +43,6 @@ ActiveRecord::Schema.define(version: 20190210114413) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "ratings", "animes"
+  add_foreign_key "ratings", "users"
 end

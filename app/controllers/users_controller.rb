@@ -3,6 +3,9 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
+    @user_loves = @user.love_animes
+    @count_loves = @user.love_animes.count
+    @count_hates = @user.hate_animes.count
   end
 
   def new
@@ -19,6 +22,13 @@ class UsersController < ApplicationController
       flash.now[:danger] = "ユーザの登録に失敗しました。"
       render :new
     end
+  end
+  
+  def hates
+    @user = User.find(params[:id])
+    @user_hates = @user.hate_animes
+    @count_loves = @user.love_animes.count
+    @count_hates = @user.hate_animes.count
   end
 
   private

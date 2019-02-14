@@ -1,0 +1,47 @@
+<div class="anime_detail">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <img class="img-responsive center-block" src="<%= @anime.image_url %>" alt="">
+    </div>
+    <div class="panel-body">
+      <h3 class="anime-title "><%= @anime.title %></h3>
+      <p>media : <%= @anime.media %></p>
+      <p>season : <%= @anime.season %></p>
+      <p>official site : <a href="<%= @anime.url %>"><%= @anime.title %></a></p>
+       <div class="buttons text-center">
+          <%= render "ratings/love_button", anime: @anime %>
+          <%= render 'ratings/hate_button', anime: @anime %>
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="love-users">
+            <div class="panel panel-info">
+              <div class="panel-heading text-center">
+                Loveしたユーザ
+              </div>
+              <div class="panel-body">
+                <% @love_users.each do |user| %>
+                  <%= link_to user.name, user_path(user) %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6">
+          <div class="hate-users">
+            <div class="panel panel-info">
+              <div class="panel-heading text-center">
+                Hateしたユーザ
+              </div>
+              <div class="panel-body">
+                <% @hate_users.each do |user| %>
+                  <%= link_to user.name, user_path(user) %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

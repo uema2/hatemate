@@ -18,30 +18,15 @@ class AnimesController < ApplicationController
       results = JSON.parse open(uri).read, {symbolize_names: true}
       
       results[:works].each do |result|
-        anime = Anime.new(read(result))
+        anime = Anime.find_or_initialize_by(read(result))
         @animes << anime
       end   
     end
   end
   
-  private  
-  
-  def read(result)
-    code = result[:id]
-    title = result[:title]
-    media = result[:media_text]
-    season = result[:season_name_text]
-    url = result[:official_site_url]
-    image_url = result[:images][:recommended_url]
-    
-    
-    {
-      code: code,
-      title: title,
-      media: media,
-      season: season,
-      url: url,
-      image_url: image_url,
-    }
+  def show
+    @anime = Anime.find(params[:id])
+    @love_users = @anime.love_users
+    @hate_users = @anime.hate_users
   end
 end

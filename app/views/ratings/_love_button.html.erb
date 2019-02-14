@@ -1,0 +1,13 @@
+<% if current_user.love?(anime) %>
+  <%= form_tag(rating_path(anime.id), method: :delete) do %>
+    <%= hidden_field_tag :anime_id, anime.id %>
+    <%= hidden_field_tag :type, 'Love' %>
+    <%= submit_tag 'Unlove', class: 'btn btn-success' %>
+  <% end %>
+<% else %>
+  <%= form_tag(ratings_path) do %>
+    <%= hidden_field_tag :anime_code, anime.code %>
+    <%= hidden_field_tag :type, 'Love' %>
+    <%= submit_tag 'Love it', class: 'btn btn-primary' %>
+  <% end %>
+<% end %>

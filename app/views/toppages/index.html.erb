@@ -14,5 +14,8 @@
 <% end %>
 
 
-<div class="text-center"><%= link_to ">  hatemateについて  <" , about_path %></div>
+<div class="text-center "><h3 class="glyphicon glyphicon-bullhorn"><%= link_to "  hatemateについて" , about_path %></h></div>
 
+<div><h3 class="glyphicon glyphicon-th"> 最近評価されたアニメ</h3></div>
+
+<%= render "animes/animes", animes: @animes %>

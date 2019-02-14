@@ -4,13 +4,22 @@
       <div class="anime">
         <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="panel panel-default">
-            <div class="panel-heading text-center">
-              <img src="<%= anime.image_url %>" alt="">
+            <div class="panel-heading">
+              <img class="img-responsive center-block" src="<%= anime.image_url %>" alt="">
             </div>
             <div class="panel-body">
-              <p class="anime-title"><%= anime.title %></p>
+              <% if anime.persisted? %>
+                <p class="anime-title"><%= link_to anime.title, anime %></p>
+              <% else %>
+                <p class="anime-title"><%= anime.title %></p>
+              <% end %>
+              <div class="buttons text-center">
+                <% if logged_in? %>
+                  <%= render "ratings/love_button", anime: anime %>
+                  <%= render 'ratings/hate_button', anime: anime %>
+                <% end %>
+              </div>
             </div>
-           
           </div>
         </div>
       </div>

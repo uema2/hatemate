@@ -1,0 +1,13 @@
+<% if current_user.hate?(anime) %>
+  <%= form_tag(rating_path(anime.id), method: :delete) do %>
+    <%= hidden_field_tag :anime_id, anime.id %>
+    <%= hidden_field_tag :type, 'Hate' %>
+    <%= submit_tag 'hateを取り下げる', class: 'btn btn-success' %>
+  <% end %>
+<% else %>
+  <%= form_tag(ratings_path) do %>
+    <%= hidden_field_tag :anime_code, anime.code %>
+    <%= hidden_field_tag :type, 'Hate' %>
+    <%= submit_tag 'Hate', class: 'btn btn-primary' %>
+  <% end %>
+<% end %>
