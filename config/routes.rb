@@ -13,8 +13,6 @@ Rails.application.routes.draw do
       get :hates
     end
   end
-
   resources :animes, only: [:show, :new] 
-
   resources :ratings, only: [:create, :destroy]
 end

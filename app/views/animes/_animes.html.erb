@@ -15,8 +15,7 @@
               <% end %>
               <div class="buttons text-center">
                 <% if logged_in? %>
-                  <%= render "ratings/love_button", anime: anime %>
-                  <%= render 'ratings/hate_button', anime: anime %>
+                  <%= render "ratings/rating_button", anime: anime %>
                 <% end %>
               </div>
             </div>

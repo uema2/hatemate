@@ -22,12 +22,10 @@ class RatingsController < ApplicationController
     
     if params[:type] == 'Love'
       current_user.love(@anime)
-      flash[:success] = '作品を Love で評価しました。'
     end
     
     if params[:type] == 'Hate'
       current_user.hate(@anime)
-      flash[:success] = "作品を Hate で評価しました。"
     end
     
     redirect_back(fallback_location: root_path)

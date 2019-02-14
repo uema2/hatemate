@@ -83,7 +83,7 @@ footer {
 
 /* anime */
 .anime .panel-body {
-  height: 120px;  
+  height: 110px;  
 }
 .anime .panel-heading {
   height: 180px;
@@ -99,7 +99,13 @@ footer {
 
 /* anime詳細　*/
 
-
 .anime_detail .anime-title {
   font-weight: bold;
+}
+.anime_detail .rating {
+  color: #e0e0e0;
+}
+.anime_detail .buttons form {
+  display: inline-block;
+  margin: 10px 15px 30px;
 }

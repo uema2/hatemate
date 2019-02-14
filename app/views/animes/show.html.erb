@@ -8,9 +8,10 @@
       <p>media : <%= @anime.media %></p>
       <p>season : <%= @anime.season %></p>
       <p>official site : <a href="<%= @anime.url %>"><%= @anime.title %></a></p>
-       <div class="buttons text-center">
-          <%= render "ratings/love_button", anime: @anime %>
-          <%= render 'ratings/hate_button', anime: @anime %>
+      <div class="rating text-center">主観的に評価してください
+        <div class="buttons">
+          <%= render "ratings/rating_button", anime: @anime %>
+        </div>
       </div>
       <div class="row">
         <div class="col-xs-6">
