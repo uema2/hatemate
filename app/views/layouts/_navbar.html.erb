@@ -12,12 +12,12 @@
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <% if logged_in? %>
+      <% if logged_in? %>
         <li>
-          <a href="#">
+          <%= link_to current_season_path do %>
             <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
             今期アニメ
-          </a>
+          <% end %>
         </li>
         <li>
           <%= link_to new_anime_path do %>

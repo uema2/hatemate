@@ -7,12 +7,17 @@ Rails.application.routes.draw do
   
   get "about", to: "toppages#show"
   get "signup", to: "users#new"
+  get "current_season", to: "animes#season"
   
   resources :users, only: [:show, :new, :create] do
     member do 
       get :hates
     end
   end
-  resources :animes, only: [:show, :new] 
+  resources :animes, only: [:show, :new] do
+    member do
+      get :season
+    end
+  end
   resources :ratings, only: [:create, :destroy]
 end

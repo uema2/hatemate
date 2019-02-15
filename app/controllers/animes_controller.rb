@@ -29,4 +29,24 @@ class AnimesController < ApplicationController
     @love_users = @anime.love_users
     @hate_users = @anime.hate_users
   end
+  
+  def season
+    @animes = []
+    
+    uri = URI('https://api.annict.com/v1/works')
+    uri.query = {
+      access_token: ENV['ANNICT_ACCESS_TOKEN'],
+      filter_season: '2019-winter',
+      sort_watchers_count: 'desc',
+      per_page: '50'
+    }.to_param
+    
+    results = JSON.parse open(uri).read, {symbolize_names: true}
+    
+    results[:works].each do |result|
+      anime = Anime.find_or_initialize_by(read(result))
+      @animes << anime
+    end   
+    
+  end
 end

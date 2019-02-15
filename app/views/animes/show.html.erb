@@ -22,8 +22,8 @@
               </div>
               <div class="panel-body">
                 <% @love_users.each do |user| %>
-                  <%= link_to user.name, user_path(user) %>
-                <% end %>
+                  <%= link_to user.name, user_path(user) %> /
+                <% end %> 
               </div>
             </div>
           </div>
@@ -36,7 +36,7 @@
               </div>
               <div class="panel-body">
                 <% @hate_users.each do |user| %>
-                  <%= link_to user.name, user_path(user) %>
+                  <%= link_to user.name, user_path(user) %> /
                 <% end %>
               </div>
             </div>
