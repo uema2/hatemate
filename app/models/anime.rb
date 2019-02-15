@@ -1,10 +1,10 @@
 class Anime < ApplicationRecord
   validates :code, presence:true, length: { maximum: 255 }
   validates :title, presence:true, length: { maximum: 255 }
-  validates :media, presence:true, length: { maximum: 255 }
-  validates :season, presence:true, length: { maximum: 255 }
-  validates :url, presence:true, length: { maximum: 255 }
-  validates :image_url, presence:true, length: { maximum: 255 }
+  validates :media, length: { maximum: 255 }
+  validates :season, length: { maximum: 255 }
+  validates :url, length: { maximum: 255 }
+  validates :image_url, length: { maximum: 255 }
   
   has_many :ratings
   has_many :users, through: :ratings
