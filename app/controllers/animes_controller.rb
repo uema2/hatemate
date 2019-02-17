@@ -20,7 +20,11 @@ class AnimesController < ApplicationController
       results[:works].each do |result|
         anime = Anime.find_or_initialize_by(read(result))
         @animes << anime
-      end   
+      end
+      
+      if results[:works].empty?
+        flash.now[:danger] = "検索結果が得られませんでした。"
+      end
     end
   end
   

@@ -13,9 +13,10 @@
   </div>
 <% end %>
 
-
-<div class="text-center "><h3 class="glyphicon glyphicon-bullhorn"><%= link_to "  hatemateについて" , about_path %></h></div>
+<div class="toppage-content">
+<div class="text-center "><p class="glyphicon glyphicon-bullhorn"><%= link_to "  hatemateについて" , about_path %></p></div>
 
 <div><h3 class="glyphicon glyphicon-th"> 最近評価されたアニメ</h3></div>
 
 <%= render "animes/animes", animes: @animes %>
+</div>

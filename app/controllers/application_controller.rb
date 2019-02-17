@@ -28,5 +28,6 @@ class ApplicationController < ActionController::Base
       url: url,
       image_url: image_url,
     }
+    
   end
 end

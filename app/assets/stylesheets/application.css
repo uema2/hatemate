@@ -1,5 +1,6 @@
 @charset "utf-8";
 
+
 /* body */
 body {
   background: #fff;
@@ -13,8 +14,8 @@ footer {
   background-color: #fff;
 }
 .navbar-header img {
-  margin-top: 5px;
-  height: 40px;
+    margin-top: 5px;
+    height: 40px;
 }
 
 /* cover */
@@ -42,6 +43,7 @@ footer {
   font-weight: bold;
   letter-spacing: 0.15em;
 }
+
 
 /* サイト説明*/
 .application_content {
@@ -97,6 +99,12 @@ footer {
   display: inline-block;
   margin: 0 5px;
 }
+.anime .anime-title  {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
 
 /* anime詳細　*/
 
@@ -110,3 +118,4 @@ footer {
   display: inline-block;
   margin: 10px 15px 30px;
 }
+
