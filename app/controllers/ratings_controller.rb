@@ -21,11 +21,11 @@ class RatingsController < ApplicationController
     end
     
     if params[:type] == 'Love'
-      current_user.love(@anime)
+      current_user.love(@anime, params[:comment])
     end
     
     if params[:type] == 'Hate'
-      current_user.hate(@anime)
+      current_user.hate(@anime, params[:comment])
     end
     
     redirect_back(fallback_location: root_path)
@@ -43,5 +43,13 @@ class RatingsController < ApplicationController
     end
     
     redirect_back(fallback_location: root_path)
+  end
+  
+  def edit
+    @rating = Rating.find(params[:id])
+  end
+  
+  def update
+    @rating.updete(params[:id])
   end
 end

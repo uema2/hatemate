@@ -13,8 +13,8 @@ class User < ApplicationRecord
   has_many :hates
   has_many :hate_animes, through: :hates, source: :anime
   
-  def love(anime)
-    self.loves.find_or_create_by(anime_id: anime.id)
+  def love(anime, comment)
+    self.loves.find_or_create_by(anime_id: anime.id, comment: comment)
   end
   
   def unlove(anime)
@@ -26,8 +26,8 @@ class User < ApplicationRecord
     self.love_animes.include?(anime)
   end
   
-  def hate(anime)
-    self.hates.find_or_create_by(anime_id: anime.id)
+  def hate(anime, comment)
+    self.hates.find_or_create_by(anime_id: anime.id, comment: comment)
   end
   
   def unhate(anime)

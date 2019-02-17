@@ -11,14 +11,34 @@
     <%= submit_tag 'Hateの評価を取り下げる', class: 'btn btn-success' %>
   <% end %>
 <% else %>
-  <%= form_tag(ratings_path) do %>
+  <%= link_to "Love", '#', class: "btn btn-info love comment-button-#{anime.code}" %>
+  <%= form_tag(ratings_path, class: "love comment-form-#{anime.code}") do %>
     <%= hidden_field_tag :anime_code, anime.code %>
     <%= hidden_field_tag :type, 'Love' %>
+    <%= text_area_tag :comment %><br>
     <%= submit_tag 'Love', class: 'btn btn-info' %>
   <% end %>
-  <%= form_tag(ratings_path) do %>
+  <%= link_to "Hate", '#', class: "btn btn-info hate comment-button-#{anime.code}" %>
+  <%= form_tag(ratings_path, class: "hate comment-form-#{anime.code}") do %>
     <%= hidden_field_tag :anime_code, anime.code %>
     <%= hidden_field_tag :type, 'Hate' %>
+    <%= text_area_tag :comment %><br>
     <%= submit_tag 'Hate', class: 'btn btn-info'  %>
   <% end %>
 <% end %>
+
+<script>
+  $('.comment-form-<%== anime.code %>').hide();
+
+  $('.hate.comment-button-<%== anime.code %>').click(function(){
+    $('.hate.comment-form-<%== anime.code %>').show();
+    $('.comment-button-<%== anime.code %>').hide();
+    return false;
+  });
+
+  $('.love.comment-button-<%== anime.code %>').click(function(){
+    $('.love.comment-form-<%== anime.code %>').show();
+    $('.comment-button-<%== anime.code %>').hide();
+    return false;
+  });
+</script>
