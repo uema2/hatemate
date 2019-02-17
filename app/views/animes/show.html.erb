@@ -1,7 +1,11 @@
 <div class="anime_detail">
   <div class="panel panel-default">
     <div class="panel-heading">
-      <img class="img-responsive center-block" src="<%= @anime.image_url %>" alt="">
+      <% if @anime.image_url.empty? %>
+        <img class="img-responsive center-block" src="/images/no_image.png" alt="">
+      <% else %>
+        <img class="img-responsive center-block" src="<%= @anime.image_url %>" alt="">
+      <% end %>
     </div>
     <div class="panel-body">
       <h3 class="anime-title "><%= @anime.title %></h3>
