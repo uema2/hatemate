@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   post "login", to: "sessions#create"
   delete "logout", to: "sessions#destroy"
   
-  get "about", to: "toppages#show"
   get "signup", to: "users#new"
   get "current_season", to: "animes#season"
   

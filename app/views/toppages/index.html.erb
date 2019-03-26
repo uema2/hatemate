@@ -2,7 +2,7 @@
   <div class="cover">
     <div class="cover-inner">
       <div class="cover-contents">
-        <h2>「嫌い」の感情から「好き」の傾向を探る</h2>
+        <h2>「嫌い」の感情から<br class="br-sp">「好き」の傾向を探る</h2>
           <% if logged_in? %>
             <%= link_to "アニメを検索する", new_anime_path, class: "btn btn-info btn-lg" %>
           <% else %>
@@ -13,10 +13,39 @@
   </div>
 <% end %>
 
-<div class="toppage-content">
-<div class="text-center "><p class="glyphicon glyphicon-bullhorn"><%= link_to "  hatemateについて" , about_path %></p></div>
-
-<div><h3 class="glyphicon glyphicon-th"> 最近評価されたアニメ</h3></div>
-
-<%= render "animes/animes", animes: @animes %>
+<div class="toppage-contents">
+  <div class="items text-center">  
+    <div class="heading">
+      <h2>hatemateの使い方</h2>
+      <h3>「嫌い」を共有することは「譲れないもの」を共有すること</h3>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-sm-4">
+        <div class="item">
+          <img src="images/icon(1).png">
+          <p class="txt-contents">評価は２択<br>両極端の作品をまとめることで参考になりやすいです。評価は　love / hate の２択です。極端な話、星２～４の作品に対する評価はいりません。</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <div class="item">
+          <img src="images/icon(2).png">
+          <p class="txt-contents">hateした作品をもとに価値観の似ているユーザを見つける<br>作品の詳細ページには評価別にユーザが一覧表示されます。そこで見つけたユーザの高評価作品を参考にすることで今まで見てこなかったジャンルの作品に出会えるかもしれません。</p>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <div class="item">
+          <img src="images/icon(3).png">
+          <p class="txt-contents">30文字以内で感想<br>ひとこと感想は作品の詳細ページに表示されます。(なくても評価はできますが、あると参考になりやすいです。)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div><h3 class="glyphicon glyphicon-th"> 最近評価されたアニメ</h3></div>
+  
+  <%= render "animes/animes", animes: @animes %>
 </div>
+
+
+

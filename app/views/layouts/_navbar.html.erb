@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar navbar-default navbar-static-top">
+  <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -21,6 +21,7 @@
         </li>
         <li>
           <%= link_to new_anime_path do %>
+          <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
           アニメ検索
           <% end %>
         </li>
